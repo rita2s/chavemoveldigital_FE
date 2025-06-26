@@ -23,7 +23,6 @@ const Authorization = () => {
         }
     };
 
-    console.log(firstStep);
     return (
         <div className={"dflx g20"}>
             <Button

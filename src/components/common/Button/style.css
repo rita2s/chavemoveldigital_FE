@@ -19,9 +19,9 @@
 }
 
 .arrow-blue {
-    background-image: url("../../../assets/icons/arrow-blue.svg");
+    background-image: url("../../../../public/icons/arrow-blue.svg");
 }
 
 .arrow-white {
-    background-image: url("../../../assets/icons/arrow-white.svg");
+    background-image: url("../../../../public/icons/arrow-white.svg");
 }

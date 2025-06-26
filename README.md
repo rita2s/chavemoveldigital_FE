@@ -1,6 +1,6 @@
 # Disclaimer
 
-This project (chavemoveldigital) is developed solely for educational purposes as a mock server for the final project of our postgraduate course. 
+This project (chavemoveldigital) is developed solely for educational purposes as a mock frontend for the final project of our postgraduate course. 
 
 **Important Notice:**
 - This repository and its contents are intended exclusively for academic evaluation and demonstration purposes

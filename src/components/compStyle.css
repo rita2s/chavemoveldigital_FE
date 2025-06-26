@@ -8,13 +8,13 @@
 .section-title {
     font-size: 0.95rem;
     font-weight: bold;
-    --blue-autGov: var(--blue-autGov);
+    color: var(--blue-autGov);
     margin-top: 2rem;
     margin-bottom: 0.5rem;
 }
 
 .progress-bar {
-    --blue-autGov: var(--blue-autGov);
+    color: var(--blue-autGov);
     font-size: 0.85rem;
     margin-bottom: 1rem;
 }
@@ -29,11 +29,12 @@
 
 .progress-bar .fill {
     height: 5px;
-    --blue-autGov: var(--blue-autGov);
+    background: var(--blue-autGov);
     border-radius: 4px;
     width: 0%;
 }
 
+/* Botões redondos de seleção */
 .comp-round-button-container {
     display: flex;
     align-items: center;
@@ -53,8 +54,8 @@
 }
 
 .round-button.selected {
-    --blue-autGov: var(--blue-autGov);
-    border-color: white;
+    background-color: var(--blue-autGov);
+    border-color: var(--blue-autGov);
 }
 
 .label {

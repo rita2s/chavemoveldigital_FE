@@ -72,3 +72,12 @@
   border: 2px solid black;
   margin-right: 0.5rem;
 }
+
+.auth-option .selected {
+  background-color: royalblue;
+}
+
+.selected-label {
+  font-weight: bold;
+  color: black;
+}

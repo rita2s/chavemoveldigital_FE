@@ -1,6 +1,5 @@
 import  React, { useState } from 'react';
-import CompProgressBar from './CompProgressBar';
-import CompAutMethod from './CompAutMethod';
+import CompBarProgress from "./CompBarProgress.jsx";
 
 const CompAutMethod = () => {
     const [selectMethod, setSelectedMethod] = useState(null);
@@ -8,9 +7,9 @@ const CompAutMethod = () => {
     return (
         <div className="comp-aut-method">
             <h3>FAÇA A SUA AUTENTICAÇÃO COM:</h3>
-            <CompProgressBar progress/>
+            <CompBarProgress progress/>
             <CompAutMethod
-                selected={selectedMethod}
+                selected={selectMethod}
                 onSelect={setSelectedMethod}
             />
         </div>

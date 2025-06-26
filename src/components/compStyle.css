@@ -5,6 +5,10 @@
     margin: auto;
 }
 
+.comp-aut-method h4 {
+    color: var(--blue-autGov);
+}
+
 .section-title {
     font-size: 0.95rem;
     font-weight: bold;

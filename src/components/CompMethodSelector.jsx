@@ -17,3 +17,5 @@ const CompMethodSelector = ({selected, onSelect}) => {
         </div>
     )
 }
+
+export default CompMethodSelector;

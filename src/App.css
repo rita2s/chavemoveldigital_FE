@@ -47,3 +47,13 @@
   width: 300px;
 }
 
+.progress-bar .bar {
+  height: 5px;
+  background: #eee;
+  width: 100%;
+}
+
+.progress-bar .fill {
+  height: 5px;
+  background: lightblue;
+}

@@ -1,0 +1,27 @@
+.btn-blue-main, .btn-grey-main {
+    width: 250px;
+    height: 40px;
+    border: none;
+}
+
+.btn-grey-main {
+    background-color: var(--grey-autGov);
+}
+
+.btn-blue-main {
+    background-color: var(--blue-autGov);
+}
+
+.arrow-blue, .arrow-white {
+    width: 75px;
+    height: 16px;
+    background-repeat: no-repeat;
+}
+
+.arrow-blue {
+    background-image: url("../../../../public/icons/arrow-blue.svg");
+}
+
+.arrow-white {
+    background-image: url("../../../../public/icons/arrow-white.svg");
+}

@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   --blue-autGov: #3C5DBC;
@@ -6,6 +5,10 @@
   --white-autGov: #FFFFFF;
   --black-autGov: #000000;
   --yellow-autGov: #FFF0CB;
+}
+
+body {
+  font-family: 'PT Sans', sans-serif;
 }
 
 .dflx {

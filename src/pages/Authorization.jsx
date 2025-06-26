@@ -8,7 +8,7 @@ const Authorization = () => {
     const [firstStep, setFirstStep] = useState(true);
 
     const handleClick ={
-        handleContinue: setFirstStep(false),
+        handleContinue: () => setFirstStep(false),
         handleAuthorize: () => navigate("/authenticate"),
         handleReturn: () => navigate(originURL)
     };
@@ -23,6 +23,7 @@ const Authorization = () => {
         }
     };
 
+    console.log(firstStep);
     return (
         <div className={"dflx g20"}>
             <Button

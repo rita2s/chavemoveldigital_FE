@@ -3,7 +3,7 @@ import "./style.css";
 
 const Button = ({className, style, btnType, btnValue, handleInput}) => {
 
-    const btnText = <h2 style={style}>{btnValue.toUpperCase()}</h2>
+    const btnText = <h2 style={style.h2}>{btnValue.toUpperCase()}</h2>
 
     return (<>
             <button

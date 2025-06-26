@@ -16,8 +16,10 @@ const Authorization = () => {
     };
 
     const style = {
-        margin: 0,
-    }
+        h2: {
+            margin: 0,
+        }
+    };
 
     return (
         <div className={"dflx g20"}>

@@ -1,5 +1,9 @@
+import  React, { useState } from 'react';
+import CompProgressBar from './CompProgressBar';
+import CompAutMethod from './CompAutMethod';
 
 const CompAutMethod = () => {
+    const [selectMethod, setSelectedMethod] = useState(null);
 
     return (
         <div className="comp-aut-method">

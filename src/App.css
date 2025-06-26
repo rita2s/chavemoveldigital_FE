@@ -4,7 +4,8 @@
   --grey-autGov: #D9D9D9;
   --white-autGov: #FFFFFF;
   --black-autGov: #000000;
-  --yellow-autGov: #FFF0CB;
+  --warning-autGov: #FFF0CB;
+  --bar-autGov: #DBE1F2;
 }
 
 body {
@@ -28,6 +29,10 @@ body {
 
 .g10 {
   gap: 10px;
+}
+
+.g5 {
+  gap: 5px;
 }
 
 .pt-sans-regular {
@@ -70,8 +75,11 @@ body {
   color: var(--black-autGov);
 }
 
-.yellow-autGov {
-  color: var(--yellow-autGov);
+.warning-autGov {
+  color: var(--warning-autGov);
 }
 
+.bar-autGov {
+  color: var(--bar-autGov);
+}
 

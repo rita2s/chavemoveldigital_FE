@@ -3,6 +3,8 @@ import CompAutMethod from "../components/CompAutMethod.jsx";
 import Button from "../components/common/Button/index.jsx";
 import React, {useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
+import Header from "../components/common/Header.jsx";
+import Footer from "../components/common/Footer.jsx";
 
 const ChooseAuthentication = () => {
 
@@ -29,6 +31,7 @@ const ChooseAuthentication = () => {
 
     return (
         <div>
+            <Header />
             <CompAutMethod/>
             <div className={"dflx g20"}>
                 <Button
@@ -54,7 +57,7 @@ const ChooseAuthentication = () => {
                     handleClick={handleClick.handleContinue}
                 />
             </div>
-
+            <Footer/>
         </div>
     )
 }

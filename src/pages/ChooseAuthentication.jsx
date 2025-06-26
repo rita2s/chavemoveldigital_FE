@@ -12,7 +12,7 @@ const ChooseAuthentication = () => {
 
     const handleClick = {
         handleContinue: () => setFirstStep(false),
-        handleAuthorize: () => navigate("/authenticate"),
+        handleAuthorize: () => navigate("/authorization"),
         handleReturn: () => navigate(originURL)
     };
 

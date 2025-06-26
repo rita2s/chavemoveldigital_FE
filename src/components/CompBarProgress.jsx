@@ -10,3 +10,5 @@ const CompBarProgress = ({ progress }) => {
         </div>
     )
 }
+
+export default CompBarProgress;

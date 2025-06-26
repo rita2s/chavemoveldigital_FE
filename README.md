@@ -1,12 +1,12 @@
-# React + Vite
+# Disclaimer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project (chavemoveldigital) is developed solely for educational purposes as a mock server for the final project of our postgraduate course. 
 
-Currently, two official plugins are available:
+**Important Notice:**
+- This repository and its contents are intended exclusively for academic evaluation and demonstration purposes
+- This project has no commercial intentions or applications
+- The code, features, and functionality are provided as-is for educational assessment only
+- Any resemblance to real-world applications or services is purely coincidental and for demonstration purposes
+- This project is not intended for production use or commercial deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+By accessing or using this repository, you acknowledge that this is an academic project created for educational purposes only.

@@ -31,7 +31,6 @@ const ChooseAuthentication = () => {
 
     return (
         <div>
-            <Header />
             <CompAutMethod/>
             <div className={"dflx g20"}>
                 <Button

@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 const WarningMessage = () => {
     const style = {
         container: {
-            backgroundColor: "var(--yellow-autGov)",
+            backgroundColor: "var(--warning-autGov)",
             width: "100%",
             height: 70,
             marginTop: "-5px",

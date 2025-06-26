@@ -57,3 +57,10 @@
   height: 5px;
   background: lightblue;
 }
+
+.auth-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin: 0.5rem 0;
+}

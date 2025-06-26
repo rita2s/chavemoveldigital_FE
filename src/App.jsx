@@ -4,6 +4,7 @@ import Authenticate from "./pages/Authenticate.jsx";
 import {Navigate, Route, Routes} from "react-router-dom";
 import Header from "./components/common/Header.jsx";
 import Footer from "./components/common/Footer.jsx";
+import ChooseAuthentication from "./pages/ChooseAuthentication.jsx";
 
 function App() {
 
@@ -12,9 +13,10 @@ function App() {
             <Header/>
             <main>
                 <Routes>
-                    <Route path="*" element={<Navigate to={"/authorization"}/>}/>
-                    <Route index element={<Authorization/>}/>
-                    <Route path="authentication" element={<Authenticate/>}/>
+                    <Route path="choose-authentication" element={<ChooseAuthentication/>}/>
+                    {/*<Route path="*" element={<Navigate to={"/authorization"}/>}/>*/}
+                    {/*<Route index element={<Authorization/>}/>*/}
+                    {/*<Route path="authentication" element={<Authenticate/>}/>*/}
                 </Routes>
             </main>
             <Footer/>

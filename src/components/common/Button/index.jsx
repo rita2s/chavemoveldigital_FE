@@ -1,7 +1,7 @@
 import React from 'react';
 import "./style.css";
 
-const Button = ({className, style, btnType, btnValue, handleInput}) => {
+const Button = ({className, style, btnType, btnValue, handleClick}) => {
 
     const btnText = <h2 style={style.h2}>{btnValue.toUpperCase()}</h2>
 
@@ -9,7 +9,7 @@ const Button = ({className, style, btnType, btnValue, handleInput}) => {
             <button
                 id={"button"}
                 type={btnType}
-                onClick={handleInput}
+                onClick={handleClick}
                 className={className.button}
                 value={btnValue}
             >{

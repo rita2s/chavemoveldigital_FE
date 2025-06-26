@@ -45,11 +45,16 @@
   font-style: italic;
 }
 
-.black {
+.blue-autGov {
+  color: var(--blue-autGov);
+}
+
+.white-autGov {
+  color: var(--white-autGov);
+}
+
+.black-autGov {
   color: var(--black-autGov);
 }
 
-.white {
-  color: var(--white-autGov);
-}
 

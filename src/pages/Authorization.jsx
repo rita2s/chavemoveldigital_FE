@@ -1,14 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from "../components/common/Button/index.jsx";
+import {useLocation, useNavigate} from "react-router-dom";
 
 const Authorization = () => {
+    const navigate = useNavigate();
+    const {originURL} = useLocation();
+    const [firstStep, setFirstStep] = useState(true);
 
-    const handleAuthorize = () => {
-        return "";
-    };
-
-    const handleReturn = () => {
-        return "";
+    const handleClick ={
+        handleContinue: setFirstStep(false),
+        handleAuthorize: () => navigate("/authenticate"),
+        handleReturn: () => navigate(originURL)
     };
 
     const className = {
@@ -25,25 +27,25 @@ const Authorization = () => {
         <div className={"dflx g20"}>
             <Button
                 className={{
-                    container: `${className.container} black`,
+                    container: `${className.container} blue-autGov`,
                     button: "btn-grey-main",
                     arrow: "arrow-blue"
                 }}
                 style={style}
                 btnType={"button"}
-                btnValue={"Voltar"}
-                handleClick={handleReturn}
+                btnValue={"voltar"}
+                handleClick={handleClick.handleReturn}
             />
             <Button
                 className={{
-                    container: `${className.container} white`,
+                    container: `${className.container} white-autGov`,
                     button: "btn-blue-main",
                     arrow: "arrow-white"
                 }}
                 style={style}
                 btnType={"button"}
-                btnValue={"Autorizar"}
-                handleClick={handleAuthorize}
+                btnValue={"continuar"}
+                handleClick={handleClick.handleContinue}
             />
         </div>
     );

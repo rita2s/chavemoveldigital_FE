@@ -8,3 +8,5 @@ const CompRoundButton = ({ label, selected, onClick }) => {
         </div>
     );
 }
+
+export default CompRoundButton;

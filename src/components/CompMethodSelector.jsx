@@ -1,0 +1,4 @@
+
+const CompMethodSelector = ({selected, onSelect}) => {
+    
+}

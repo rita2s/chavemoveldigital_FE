@@ -10,7 +10,7 @@ const Header = () => {
 
         },
         img: {
-            width: "200px",
+            width: "316px",
         }
     }
     return (

@@ -1,0 +1,67 @@
+.comp-aut-method {
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.section-title {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: royalblue;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    color: royalblue;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.progress-bar .bar {
+    height: 5px;
+    background: #eee;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+}
+
+.progress-bar .fill {
+    height: 5px;
+    background: royalblue;
+    border-radius: 4px;
+    width: 0%;
+}
+
+/* Botões redondos de seleção */
+.comp-round-button-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.round-button {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.round-button.selected {
+    background-color: royalblue;
+    border-color: royalblue;
+}
+
+.label {
+    color: black;
+}
+
+.selected-label {
+    font-weight: bold;
+}

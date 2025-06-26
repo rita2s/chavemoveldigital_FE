@@ -15,9 +15,9 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Navigate to="/choose-authentication" />} />
                     <Route path="choose-authentication" element={<ChooseAuthentication />} />
-                    {/*<Route path="*" element={<Navigate to={"/authorization"}/>}/>*/}
-                    {/*<Route index element={<Authorization/>}/>*/}
-                    {/*<Route path="authentication" element={<Authenticate/>}/>*/}
+                    <Route path="*" element={<Navigate to={"/authorization"}/>}/>
+                    <Route index element={<Authorization/>}/>
+                    <Route path="authentication" element={<Authenticate/>}/>
                 </Routes>
             </main>
             <Footer/>

@@ -7,7 +7,6 @@ const CompAutMethod = () => {
     return (
         <div className="comp-aut-method">
             <h3>FAÇA A SUA AUTENTICAÇÃO COM:</h3>
-            <CompBarProgress progress/>
             <CompMethodSelector />
         </div>
     );

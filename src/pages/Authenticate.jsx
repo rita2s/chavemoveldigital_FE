@@ -3,15 +3,15 @@ import {useLocation, useNavigate} from "react-router-dom";
 import WarningMessage from "../components/common/WarningMessage/index.jsx";
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
 import api from "../services/api.js";
-import {Modal} from "@mui/material";
 import ModalContainer from "../components/ModalContainer/index.jsx";
+import AuthenticationInputsContainer from "../components/AuthenticationInputsContainer.jsx";
 
 const Authenticate = () => {
     const navigate = useNavigate();
     const {targetURL} = useLocation();
     const [open, setOpen] = useState(false);
     const [data, setData] = useState(null);
-    const [credentials, setCredentials] = useState({
+    const [input, setInput] = useState({
         telephoneNumber: "",
         pin: 0,
     });
@@ -26,8 +26,8 @@ const Authenticate = () => {
 
         try {
             const body = new FormData();
-            body.set("telephoneNumber", credentials.telephoneNumber)
-            body.set("pin", credentials.pin)
+            body.set("telephoneNumber", input.telephoneNumber)
+            body.set("pin", input.pin)
 
             const {data} = async () => await api.post("/authenticate", body)
 
@@ -41,34 +41,50 @@ const Authenticate = () => {
         navigate(targetURL);
     }
 
-
-    const className = {
-        return: {
-            container: "dflx g10 pt-sans-bold blue-autGov",
-            button: "btn-grey-main",
-            arrow: "arrow-blue"
+    const buttonsDetails = {
+        className: {
+            return: {
+                container: "dflx g10 pt-sans-bold blue-autGov",
+                button: "btn-grey-main",
+                arrow: "arrow-blue"
+            },
+            advance: {
+                container: "dflx g10 pt-sans-bold white-autGov",
+                button: "btn-blue-main",
+                arrow: "arrow-white"
+            }
         },
-        advance: {
-            container: "dflx g10 pt-sans-bold white-autGov",
-            button: "btn-blue-main",
-            arrow: "arrow-white"
+        style: {
+            h2: {
+                margin: 0,
+            }
         }
     };
 
-    const style = {
-        h2: {
-            margin: 0,
-        }
-    };
+    const inputsDetails = {
+        title: "chave móvel digital",
+        telephoneNumber: {
+            label: "Número de Telemóvel",
+            type: "text"
+        },
+        pin: {
+            label: "Inserir PIN",
+            type: "password"
+        },
+    }
 
     return (
         <>
-            <WarningMessage/>
+            <h3>FAÇA A SUA AUTENTICAÇÃO</h3>
             {/*<ProgressBar progress={30}/>*/}
-            {/*Inputs*/}
+            <AuthenticationInputsContainer
+                input={input}
+                setInput={setInput}
+                inputsDetails={inputsDetails}
+            />
             <ButtonsContainer
-                className={className}
-                style={style}
+                className={buttonsDetails.className}
+                style={buttonsDetails.style}
                 handleReturn={handleReturn}
                 handleAdvance={handleAuthenticate}
                 returnBtn={"voltar"}

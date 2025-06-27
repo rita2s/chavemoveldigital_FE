@@ -12,13 +12,12 @@ function App() {
             <Header/>
             <main>
                 <Routes>
-                    <Route path="/" element={<Navigate to="/choose-authentication" />} />
-                    <Route path="choose-authentication" element={<ChooseAuthentication />} />
-                    <Route path="/authentication" element={<Authenticate />} />
-
                     <Route path="/authorization" element={<Authorization />} />
 
-                    <Route path="*" element={<Navigate to="/choose-authentication" />} />
+                    <Route path="/authentication" element={<Authenticate />} />
+
+
+                    <Route path="*" element={<Navigate to="/choose-authorization" />} />
                 </Routes>
             </main>
             <Footer/>

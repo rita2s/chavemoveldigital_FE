@@ -4,6 +4,8 @@ import WarningMessage from "../components/common/WarningMessage/index.jsx";
 import ProgressBar from "../components/common/ProgressBar/index.jsx";
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
 
+
+// First page
 const Authorization = () => {
     const navigate = useNavigate();
     const {originURL} = useLocation();

@@ -51,7 +51,6 @@ const Authorization = () => {
                 returnBtn={"voltar"}
                 advanceBtn={firstStep ? "continuar" : "autorizar"}
                 />
-            <Footer/>
         </div>
     );
 };

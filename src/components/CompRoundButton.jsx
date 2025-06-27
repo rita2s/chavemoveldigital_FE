@@ -1,11 +1,11 @@
 
-const CompRoundButton = ({ label, selected, onClick }) => {
+const CompRoundButton = ({ label, id, selected, name }) => {
 
     return (
-        <div className="comp-round-button-container" onClick={onClick}>
-            <div className={`round-button ${selected ? 'selected' : ''}`}/>
-            <span className={selected ? `selected-label` : ""}>{label}</span>
-        </div>
+        <>
+            <input type={"radio"} id={id} name={name} className={`round-button ${selected ? 'selected' : ''}`}/>
+            <label htmlFor={id} className={selected ? `selected-label` : ""}>{label}</label>
+        </>
     );
 }
 

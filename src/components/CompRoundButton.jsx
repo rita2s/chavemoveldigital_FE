@@ -1,7 +1,6 @@
 
-const CompRoundButton = ({ label, id, selected, setSelectedMethod, name }) => {
-    console.log(id)
-
+const CompRoundButton = ({ label, id, selected, handleSelectChange, name }) => {
+    console.log(selected, id)
     return (
 
         <>
@@ -10,7 +9,8 @@ const CompRoundButton = ({ label, id, selected, setSelectedMethod, name }) => {
                 id={id}
                 name={name}
                 className={`round-button`}
-                onChange={() => setSelectedMethod(id)}
+                value={id}
+                onChange={(e) => handleSelectChange(e)}
             />
             <label
                 htmlFor={id}

@@ -40,10 +40,10 @@
 
 .comp-round-button-container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.5rem;
     margin: 1rem 0;
-    cursor: pointer;
     font-size: 0.95rem;
 }
 
@@ -56,15 +56,23 @@
     box-sizing: border-box;
 }
 
-.round-button.selected {
+input[type="radio"]:checked  {
+    appearance: var(--blue-autGov);
     background-color: var(--blue-autGov);
-    border-color: var(--blue-autGov);
-}
-
-.label {
-    color: black;
+    font: inherit;
+    color: var(--blue-autGov);
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.1em solid var(--blue-autGov);
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .selected-label {
+    color: black;
+    cursor: pointer;
+}
+
+.selected {
     font-weight: bold;
 }

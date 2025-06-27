@@ -3,6 +3,8 @@ import {useLocation, useNavigate} from "react-router-dom";
 import WarningMessage from "../components/common/WarningMessage/index.jsx";
 import ProgressBar from "../components/common/ProgressBar/index.jsx";
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
+import CompAutMethod from "../components/CompAutMethod.jsx";
+import Footer from "../components/common/Footer.jsx";
 
 
 // First page
@@ -39,8 +41,7 @@ const Authorization = () => {
 
     return (
         <>
-            {/*<ProgressBar progress={30}/>*/}
-
+            <CompAutMethod/>
             <ButtonsContainer
                 className={className}
                 style={style}
@@ -49,6 +50,7 @@ const Authorization = () => {
                 returnBtn={"voltar"}
                 advanceBtn={firstStep ? "continuar" : "autorizar"}
                 />
+            <Footer/>
         </>
     );
 };

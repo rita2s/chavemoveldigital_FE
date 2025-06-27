@@ -1,6 +1,21 @@
 import CompRoundButton from "./CompRoundButton.jsx";
+import {useState} from "react";
 
-const CompMethodSelector = ({selected, setSelectedMethod}) => {
+const CompMethodSelector = () => {
+    const [selected, setSelectedMethod] = useState({
+        authMethod: "",
+        personalMethod: ""
+    });
+
+    console.log("Selected Method:", selected);
+
+    const handleSelectChange = (event) => {
+        const { name, value } = event.target;
+        setSelectedMethod(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    }
     return (
         <div>
             <form className="comp-method" onSubmit={""}>
@@ -8,38 +23,38 @@ const CompMethodSelector = ({selected, setSelectedMethod}) => {
                 <div className="comp-round-button-container">
                     <CompRoundButton
                         id="bi"
-                        name="auth-method"
+                        name="authMethod"
                         value="radio1"
                         label="Cartão de Cidadão"
-                        selected={selected}
-                        setSelectedMethod={setSelectedMethod}
+                        selected={selected.authMethod}
+                        handleSelectChange={handleSelectChange}
                     />
                     <CompRoundButton
                         id="cmd"
-                        name="auth-method"
+                        name="authMethod"
                         value="radio2"
                         label="Chave Móvel Digital"
-                        selected={selected}
-                        setSelectedMethod={setSelectedMethod}
+                        selected={selected.authMethod}
+                        handleSelectChange={handleSelectChange}
                     />
                 </div>
                 <div className="comp-round-button-container">
                     <h4>Pretende fazer a autenticação através de:</h4>
                     <CompRoundButton
                         id="email"
-                        name="personal-method"
+                        name="personalMethod"
                         value="radio3"
                         label="Email"
-                        selected={selected}
-                        setSelectedMethod={setSelectedMethod}
+                        selected={selected.personalMethod}
+                        handleSelectChange={handleSelectChange}
                     />
                     <CompRoundButton
                         id="sms"
-                        name="personal-method"
+                        name="personalMethod"
                         value="radio4"
                         label="Número de Telemóvel"
-                        selected={selected}
-                        setSelectedMethod={setSelectedMethod}
+                        selected={selected.personalMethod}
+                        handleSelectChange={handleSelectChange}
                     />
                 </div>
             </form>

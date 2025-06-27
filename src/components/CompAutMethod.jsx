@@ -2,6 +2,7 @@ import  React from 'react';
 import CompMethodSelector from "./CompMethodSelector.jsx";
 import ProgressBar from "./common/ProgressBar/index.jsx";
 
+
 const CompAutMethod = () => {
 
     return (

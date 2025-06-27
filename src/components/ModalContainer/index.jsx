@@ -1,0 +1,65 @@
+import React from 'react';
+import {useNavigate} from "react-router-dom";
+import {Box, Modal, Typography} from "@mui/material";
+
+const ModalContainer = ({data, handleClose}) => {
+    const navigate = useNavigate();
+    const {code, delay} = data;
+    /*
+    * Modal é a popup window que a parece com o código
+    * Para facilitar a nossa vida podemos usar o Material UI que é uma framework
+    * para criar modals e outras cenas
+    * https://mui.com/material-ui/react-modal/
+    */
+
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+        borderRadius: 5,
+        typography: {
+            color: 'white'
+        }
+    };
+
+
+    return (
+        <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
+            <Box sx={style}>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                    Nunca partilhe este código com ninguém:
+                </Typography>
+                <Typography id="modal-modal-description" sx={{mt: 2, mb: 2}}>
+                    {code}
+                </Typography>
+                <Typography id="modal-modal-description" sx={{mt: 2, mb: 2}}>
+                    Autenticação em Autoridade Tributária e Aduaneira
+                </Typography>
+
+                <div className={"diflex jcc w100"}>
+                    <input
+                        type={"button"}
+                        value={"Fechar"}
+                        onClick={() => {
+                            navigate("/authorization", {state: {delay}});
+                        }}
+                    />
+                </div>
+
+            </Box>
+        </Modal>
+    );
+};
+
+export default ModalContainer;

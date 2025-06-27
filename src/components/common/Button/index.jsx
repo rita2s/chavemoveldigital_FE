@@ -3,6 +3,10 @@ import "./style.css";
 
 const Button = ({className, style, btnType, btnValue, handleClick}) => {
 
+    style.button = {
+        cursor: "pointer"
+    };
+
     const btnText = <h2 style={style.h2}>{btnValue.toUpperCase()}</h2>
 
     return (<>
@@ -11,6 +15,7 @@ const Button = ({className, style, btnType, btnValue, handleClick}) => {
                 type={btnType}
                 onClick={handleClick}
                 className={className.button}
+                style={style.button}
                 value={btnValue}
             >{
                 className.button === "btn-grey-main"

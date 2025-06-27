@@ -2,9 +2,9 @@ import React from 'react';
 import {useNavigate} from "react-router-dom";
 import {Box, Modal, Typography} from "@mui/material";
 
-const ModalContainer = ({data, handleClose}) => {
+const ModalContainer = ({open, handleClose, data}) => {
     const navigate = useNavigate();
-    const {code, delay} = data;
+    const {code, delay} = data || {};
     /*
     * Modal é a popup window que a parece com o código
     * Para facilitar a nossa vida podemos usar o Material UI que é uma framework

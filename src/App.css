@@ -18,6 +18,13 @@ body {
   align-items: center;
 }
 
+.dflxc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .dinflx {
   display: inline-flex;
   justify-content: center;

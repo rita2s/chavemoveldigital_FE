@@ -37,7 +37,6 @@ const Authorization = () => {
 
     return (
         <>
-            <WarningMessage/>
             {/*<ProgressBar progress={30}/>*/}
 
             <ButtonsContainer

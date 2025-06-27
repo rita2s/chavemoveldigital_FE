@@ -11,7 +11,7 @@ const CompAutMethod = () => {
             <CompBarProgress progress/>
             <CompMethodSelector
                 selected={selectMethod}
-                onSelect={setSelectedMethod}
+                setSelectedMethod={setSelectedMethod}
             />
         </div>
     );

@@ -1,5 +1,4 @@
 import  React from 'react';
-import CompBarProgress from "./CompBarProgress.jsx";
 import CompMethodSelector from "./CompMethodSelector.jsx";
 
 const CompAutMethod = () => {

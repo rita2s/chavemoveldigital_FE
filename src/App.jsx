@@ -17,7 +17,7 @@ function App() {
                     <Route path="/authentication" element={<Authenticate />} />
 
 
-                    <Route path="*" element={<Navigate to="/choose-authorization" />} />
+                    <Route path="*" element={<Navigate to="/authorization" />} />
                 </Routes>
             </main>
             <Footer/>

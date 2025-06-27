@@ -4,7 +4,6 @@ import Authenticate from "./pages/Authenticate.jsx";
 import {Navigate, Route, Routes} from "react-router-dom";
 import Header from "./components/common/Header.jsx";
 import Footer from "./components/common/Footer.jsx";
-import ChooseAuthentication from "./pages/ChooseAuthentication.jsx";
 
 function App() {
 

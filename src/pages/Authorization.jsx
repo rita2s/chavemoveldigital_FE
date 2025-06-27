@@ -5,6 +5,7 @@ import ProgressBar from "../components/common/ProgressBar/index.jsx";
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
 import CompAutMethod from "../components/CompAutMethod.jsx";
 import Footer from "../components/common/Footer.jsx";
+import "../components/compStyle.css"
 
 
 // First page
@@ -40,7 +41,7 @@ const Authorization = () => {
     };
 
     return (
-        <>
+        <div className={"dflxc"}>
             <CompAutMethod/>
             <ButtonsContainer
                 className={className}
@@ -51,7 +52,7 @@ const Authorization = () => {
                 advanceBtn={firstStep ? "continuar" : "autorizar"}
                 />
             <Footer/>
-        </>
+        </div>
     );
 };
 

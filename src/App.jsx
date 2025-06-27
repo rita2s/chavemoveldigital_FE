@@ -15,7 +15,6 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Navigate to="/choose-authentication" />} />
                     <Route path="choose-authentication" element={<ChooseAuthentication />} />
-
                     <Route path="/authentication" element={<Authenticate />} />
 
                     <Route path="/authorization" element={<Authorization />} />

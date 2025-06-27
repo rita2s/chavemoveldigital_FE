@@ -10,7 +10,7 @@ const CompMethodSelector = () => {
     console.log("Selected Method:", selected);
 
     const handleSelectChange = (event) => {
-        const { name, value } = event.target;
+        const {name, value} = event.target;
         setSelectedMethod(prev => ({
             ...prev,
             [name]: value
@@ -19,8 +19,8 @@ const CompMethodSelector = () => {
     return (
         <div>
             <form className="comp-method" onSubmit={""}>
-                <h4>SELECIONE O MÉTODO DE AUTENTICAÇÃO:</h4>
                 <div className="comp-round-button-container">
+                <h4>SELECIONE O MÉTODO DE AUTENTICAÇÃO:</h4>
                     <CompRoundButton
                         id="bi"
                         name="authMethod"
@@ -38,8 +38,8 @@ const CompMethodSelector = () => {
                         handleSelectChange={handleSelectChange}
                     />
                 </div>
+                <h4>Pretende fazer a autenticação através de:</h4>
                 <div className="comp-round-button-container">
-                    <h4>Pretende fazer a autenticação através de:</h4>
                     <CompRoundButton
                         id="email"
                         name="personalMethod"

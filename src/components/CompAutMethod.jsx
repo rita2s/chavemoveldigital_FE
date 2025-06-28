@@ -9,7 +9,8 @@ const CompAutMethod = ({firstStep}) => {
             {
                 firstStep
                     ? <CompMethodSelector />
-                    : "" // TODO: COMPONENTE DO SECOND STEP
+                    : <CompAgreeToData />
+                // TODO: COMPONENTE DO SECOND STEP
                 // (A PARTE DO AUTORIZAR A EUVOTO OBTER OS SEGUINTES DADOS)
             }
         </div>

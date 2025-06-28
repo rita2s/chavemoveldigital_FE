@@ -7,8 +7,6 @@ const CompMethodSelector = () => {
         personalMethod: ""
     });
 
-    console.log("Selected Method:", selected);
-
     const handleSelectChange = (event) => {
         const {name, value} = event.target;
         setSelectedMethod(prev => ({
@@ -18,7 +16,7 @@ const CompMethodSelector = () => {
     }
     return (
         <div>
-            <form className="comp-method" onSubmit={""}>
+            <form className="comp-method" onSubmit={() => console.log(selected)}>
                 <div className="comp-round-button-container">
                 <h4>SELECIONE O MÉTODO DE AUTENTICAÇÃO:</h4>
                     <CompRoundButton

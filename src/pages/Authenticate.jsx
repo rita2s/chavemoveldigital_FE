@@ -6,6 +6,7 @@ import api from "../services/api.js";
 import ModalContainer from "../components/ModalContainer/index.jsx";
 import AuthenticationInputsContainer from "../components/AuthenticationInputsContainer.jsx";
 import ProgressBar from "../components/common/ProgressBar/index.jsx";
+import MainContainer from "../components/MainContainer.jsx";
 
 const Authenticate = () => {
     const navigate = useNavigate();
@@ -75,9 +76,11 @@ const Authenticate = () => {
     }
 
     return (
-        <div className={"dflxc"}>
-            <h3>FAÇA A SUA AUTENTICAÇÃO</h3>
-            <ProgressBar progress={40}/>
+        <MainContainer
+            className={"dflxc g20"}
+            title={"faça a sua autenticação:"}
+            progress={30}
+        >
             <AuthenticationInputsContainer
                 input={input}
                 setInput={setInput}
@@ -92,7 +95,7 @@ const Authenticate = () => {
                 advanceBtn={"autenticar"}
             />
             <ModalContainer open={open} handleClose={handleClose} data={data}/>
-        </div>
+        </MainContainer>
     );
 };
 

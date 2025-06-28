@@ -1,10 +1,7 @@
 import React, {useState} from 'react';
 import {useLocation, useNavigate} from "react-router-dom";
-import WarningMessage from "../components/common/WarningMessage/index.jsx";
-import ProgressBar from "../components/common/ProgressBar/index.jsx";
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
 import CompAutMethod from "../components/CompAutMethod.jsx";
-import Footer from "../components/common/Footer.jsx";
 import "../components/compStyle.css"
 
 
@@ -31,7 +28,6 @@ const Authorization = () => {
             button: "btn-blue-main",
             arrow: "arrow-white"
         }
-
     };
 
     const style = {

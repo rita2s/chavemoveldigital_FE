@@ -3,51 +3,37 @@ import {useLocation, useNavigate} from "react-router-dom";
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
 import CompAutMethod from "../components/CompAutMethod.jsx";
 import "../components/compStyle.css"
+import MainContainer from "../components/MainContainer.jsx";
 
 
 // First page
 const Authorization = () => {
     const navigate = useNavigate();
-    const {originURL} = useLocation();
+    const {state} = useLocation();
     const [firstStep, setFirstStep] = useState(true);
 
     const handleClick = {
         handleContinue: () => setFirstStep(false),
-        handleAuthorize: () => navigate("/authenticate"),
-        handleReturn: () => navigate(originURL)
-    };
-
-    const className = {
-        return: {
-            container: "dflx g10 pt-sans-bold blue-autGov",
-            button: "btn-grey-main",
-            arrow: "arrow-blue"
+        handleAuthorize: () => {
+            navigate("/authenticate")
         },
-        advance: {
-            container: "dflx g10 pt-sans-bold white-autGov",
-            button: "btn-blue-main",
-            arrow: "arrow-white"
-        }
-    };
-
-    const style = {
-        h2: {
-            margin: 0,
-        }
+        handleReturn: () => navigate(state?.originURL)
     };
 
     return (
-        <div className={"dflxc"}>
-            <CompAutMethod/>
+        <MainContainer
+            className={"dflxc g20"}
+            title={"faça a sua autenticação com:"}
+            progress={10}
+        >
+            <CompAutMethod firstStep={firstStep}/>
             <ButtonsContainer
-                className={className}
-                style={style}
                 handleReturn={handleClick.handleReturn}
                 handleAdvance={firstStep ? handleClick.handleContinue : handleClick.handleAuthorize}
                 returnBtn={"voltar"}
                 advanceBtn={firstStep ? "continuar" : "autorizar"}
                 />
-        </div>
+        </MainContainer>
     );
 };
 

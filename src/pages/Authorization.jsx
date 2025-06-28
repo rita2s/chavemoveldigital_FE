@@ -15,7 +15,7 @@ const Authorization = () => {
     const handleClick = {
         handleContinue: () => setFirstStep(false),
         handleAuthorize: () => {
-            navigate("/authenticate")
+            navigate("/authentication")
         },
         handleReturn: () => navigate(state?.originURL)
     };

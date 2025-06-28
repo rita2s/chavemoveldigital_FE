@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
-import {useLocation, useNavigate} from "react-router-dom";
-import WarningMessage from "../components/common/WarningMessage/index.jsx";
+import {useNavigate} from "react-router-dom";
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
 import api from "../services/api.js";
 import ModalContainer from "../components/ModalContainer/index.jsx";
 import AuthenticationInputsContainer from "../components/AuthenticationInputsContainer.jsx";
-import ProgressBar from "../components/common/ProgressBar/index.jsx";
 import MainContainer from "../components/MainContainer.jsx";
 
 const Authenticate = () => {
@@ -14,7 +12,7 @@ const Authenticate = () => {
     const [data, setData] = useState(null);
     const [input, setInput] = useState({
         telephoneNumber: "",
-        pin: 0,
+        pin: "",
     });
 
     const handleOpenModal = () => setOpen(true);
@@ -22,7 +20,7 @@ const Authenticate = () => {
 
     const handleReturn = () => navigate("/authorization");
 
-    const handleAuthenticate = (e) => {
+    const handleAuthenticate = async (e) => {
         e.preventDefault();
 
         try {
@@ -30,8 +28,7 @@ const Authenticate = () => {
             body.set("telephoneNumber", input.telephoneNumber)
             body.set("pin", input.pin)
 
-            const {data} = async () => await api.post("http://localhost:9090/authenticate", body)
-            console.log("data: ", data);
+            const {data} = await api.post("/authenticate", body)
 
             setData(data)
             handleOpenModal()
@@ -66,11 +63,15 @@ const Authenticate = () => {
         title: "chave móvel digital",
         telephoneNumber: {
             label: "Número de Telemóvel",
-            type: "text"
+            type: "text",
+            name: "telephoneNumber",
+            value: input.telephoneNumber
         },
         pin: {
             label: "Inserir PIN",
-            type: "password"
+            type: "password",
+            name: "pin",
+            value: input.pin
         },
     }
 

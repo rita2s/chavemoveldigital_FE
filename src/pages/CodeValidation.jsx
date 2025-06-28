@@ -15,20 +15,27 @@ const CodeValidation = () => {
 
     const handleReturn = () => navigate("/authentication");
 
-    const handleCodeValidation = () => {
+    const handleCodeValidation = async () => {
         try {
             const body = new FormData();
             body.set("code", input.code)
 
-            const {data} = api.post("http://localhost:9090/authenticate/code", body);
-
-            console.log(data);
+            const {data} = await api.post("/authenticate/code", body);
 
         } catch (e) {
             console.error(e);
         }
     };
 
+    const inputsDetails = {
+        title: "chave móvel digital",
+        code: {
+            label: "Número de Telemóvel",
+            type: "text",
+            name: "code",
+            value: input.code
+        },
+    }
 
     return (
         <MainContainer
@@ -36,7 +43,11 @@ const CodeValidation = () => {
             title={"faça a sua autenticação:"}
             progress={10}
         >
-            <CodeValidationContainer input={input} setInput={setInput}/>
+            <CodeValidationContainer
+                input={input}
+                setInput={setInput}
+                inputsDetails={inputsDetails}
+            />
             <CodeCountDown delay={state?.delay}/>
             <ButtonsContainer
                 advanceBtn={"voltar"}

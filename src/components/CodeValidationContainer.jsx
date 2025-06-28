@@ -1,8 +1,8 @@
 import React from 'react';
 import TextInput from "./common/TextInput/index.jsx";
 
-const CodeValidationContainer = ({input, setInput}) => {
-
+const CodeValidationContainer = ({input, setInput, inputsDetails}) => {
+    const {code} = inputsDetails;
     const style = {};
     const className = {};
     return (
@@ -11,6 +11,7 @@ const CodeValidationContainer = ({input, setInput}) => {
             <TextInput
                 input={input}
                 setInput={setInput}
+                inputDetails={code}
                 style={style}
                 type={"text"}
                 className={className}

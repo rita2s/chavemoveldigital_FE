@@ -1,5 +1,6 @@
 import React from 'react';
 import CompMethodSelector from "./CompMethodSelector.jsx";
+import CompAgreeToData from "./CompAgreeToData.jsx";
 
 
 const CompAutMethod = ({firstStep}) => {

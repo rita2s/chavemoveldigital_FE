@@ -2,6 +2,7 @@
 const CompAgreeToData = () => {
 
     return (
+        <h3>OLAOLA</h3>
 
     )
 }

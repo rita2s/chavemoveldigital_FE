@@ -76,3 +76,17 @@ input[type="radio"]:checked  {
 .selected {
     font-weight: bold;
 }
+
+.inline-row {
+    display: inline-block;
+    gap: 0.5rem;
+}
+
+.inline-row h5,
+.inline-row p {
+    margin: 0;
+}
+
+.comp-aut-method h5 {
+    font-size: 1rem;
+}

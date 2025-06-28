@@ -17,8 +17,8 @@ const CompMethodSelector = () => {
     return (
         <div>
             <form className="comp-method" onSubmit={() => console.log(selected)}>
-                <div className="comp-round-button-container">
                 <h4>SELECIONE O MÉTODO DE AUTENTICAÇÃO:</h4>
+                <div className="comp-round-button-container">
                     <CompRoundButton
                         id="bi"
                         name="authMethod"

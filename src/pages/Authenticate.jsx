@@ -10,7 +10,6 @@ import MainContainer from "../components/MainContainer.jsx";
 
 const Authenticate = () => {
     const navigate = useNavigate();
-    const {targetURL} = useLocation();
     const [open, setOpen] = useState(false);
     const [data, setData] = useState(null);
     const [input, setInput] = useState({
@@ -19,7 +18,7 @@ const Authenticate = () => {
     });
 
     const handleOpenModal = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleCloseModal = () => setOpen(false);
 
     const handleReturn = () => navigate("/authorization");
 
@@ -31,7 +30,8 @@ const Authenticate = () => {
             body.set("telephoneNumber", input.telephoneNumber)
             body.set("pin", input.pin)
 
-            const {data} = async () => await api.post("/authenticate", body)
+            const {data} = async () => await api.post("http://localhost:9090/authenticate", body)
+            console.log("data: ", data);
 
             setData(data)
             handleOpenModal()
@@ -40,7 +40,6 @@ const Authenticate = () => {
             console.error("Authentication failed:", e);
             return;
         }
-        navigate(targetURL);
     }
 
     const buttonsDetails = {
@@ -94,7 +93,7 @@ const Authenticate = () => {
                 returnBtn={"voltar"}
                 advanceBtn={"autenticar"}
             />
-            <ModalContainer open={open} handleClose={handleClose} data={data}/>
+            <ModalContainer open={open} handleCloseModal={handleCloseModal} data={data}/>
         </MainContainer>
     );
 };

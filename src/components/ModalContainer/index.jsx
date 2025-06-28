@@ -2,7 +2,7 @@ import React from 'react';
 import {useNavigate} from "react-router-dom";
 import {Box, Modal, Typography} from "@mui/material";
 
-const ModalContainer = ({open, handleClose, data}) => {
+const ModalContainer = ({open, handleCloseModal, data}) => {
     const navigate = useNavigate();
     const {code, delay} = data || {};
     /*
@@ -24,7 +24,7 @@ const ModalContainer = ({open, handleClose, data}) => {
         p: 4,
         borderRadius: 5,
         typography: {
-            color: 'white'
+            color: 'black'
         }
     };
 
@@ -32,7 +32,7 @@ const ModalContainer = ({open, handleClose, data}) => {
     return (
         <Modal
             open={open}
-            onClose={handleClose}
+            onClose={handleCloseModal}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
@@ -52,7 +52,7 @@ const ModalContainer = ({open, handleClose, data}) => {
                         type={"button"}
                         value={"Fechar"}
                         onClick={() => {
-                            navigate("/authorization", {state: {delay}});
+                            navigate("/code-validation", {state: {delay}});
                         }}
                     />
                 </div>

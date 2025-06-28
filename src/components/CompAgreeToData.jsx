@@ -5,7 +5,7 @@ const CompAgreeToData = () => {
 
         <div className="comp-method">
             <h4>SELECIONE O MÉTODO DE AUTENTICAÇÃO:</h4>
-            <div className="inline-row" >
+            <div>
                 <p><strong>EuVoto</strong> solicitou alguns dos seus dados para realizar o serviço online pretendido</p>
             </div>
 

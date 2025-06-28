@@ -1,6 +1,8 @@
 import React from 'react';
 
-const TextInput = ({input, setInput, label, type, className, style}) => {
+const TextInput = ({input, setInput, inputDetails, className, style}) => {
+    const {type, label, name, value} = inputDetails;
+
     return (
         <>
             <label
@@ -13,8 +15,14 @@ const TextInput = ({input, setInput, label, type, className, style}) => {
                 id={`input-${type}`}
                 className={className.input}
                 style={style.input}
-                value={input.value}
-                onChange={(e) => setInput(e.target.value)}
+                name={name}
+                value={value}
+                onChange={(e) => {
+                    setInput({
+                        ...input,
+                        [e.target.name]: e.target.value
+                    })
+                }}
             />
         </>
     );

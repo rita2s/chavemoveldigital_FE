@@ -19,16 +19,14 @@ const AuthenticationInputsContainer = ({input, setInput, inputsDetails}) => {
             <TextInput
                 input={input}
                 setInput={setInput}
-                label={telephoneNumber?.label}
-                type={telephoneNumber?.type}
+                inputDetails={telephoneNumber}
                 style={style}
                 className={className}
             />
             <TextInput
                 input={input}
                 setInput={setInput}
-                label={pin?.label}
-                type={pin?.type}
+                inputDetails={pin}
                 style={style}
                 className={className}
             />

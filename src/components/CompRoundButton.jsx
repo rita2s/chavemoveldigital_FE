@@ -1,6 +1,5 @@
 
 const CompRoundButton = ({ label, id, selected, handleSelectChange, name }) => {
-    console.log(selected, id)
     return (
 
         <>

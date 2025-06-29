@@ -24,7 +24,7 @@ const Authorization = () => {
         <MainContainer
             className={"dflxc g20"}
             title={"faça a sua autenticação com:"}
-            progress={10}
+            progress={firstStep ? 0 : 30}
         >
             <CompAutMethod firstStep={firstStep}/>
             <ButtonsContainer

@@ -17,7 +17,7 @@ const Authorization = () => {
         handleAuthorize: () => {
             navigate("/authentication")
         },
-        handleReturn: () => navigate(state?.originURL)
+        handleReturn: () => navigate(state?.originURL || "/")
     };
 
     return (

@@ -79,7 +79,7 @@ const Authenticate = () => {
         <MainContainer
             className={"dflxc g20"}
             title={"faça a sua autenticação:"}
-            progress={30}
+            progress={50}
         >
             <AuthenticationInputsContainer
                 input={input}

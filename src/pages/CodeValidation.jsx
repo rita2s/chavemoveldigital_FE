@@ -41,7 +41,7 @@ const CodeValidation = () => {
         <MainContainer
             className={"dflxc g20"}
             title={"faça a sua autenticação:"}
-            progress={10}
+            progress={100}
         >
             <CodeValidationContainer
                 input={input}
@@ -50,10 +50,10 @@ const CodeValidation = () => {
             />
             <CodeCountDown delay={state?.delay}/>
             <ButtonsContainer
-                advanceBtn={"voltar"}
+                advanceBtn={"autenticar"}
                 handleAdvance={handleCodeValidation}
                 handleReturn={handleReturn}
-                returnBtn={"autenticar"}
+                returnBtn={"voltar"}
             />
         </MainContainer>
     );

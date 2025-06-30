@@ -4,6 +4,8 @@ import MainContainer from "../components/MainContainer.jsx";
 import React from "react";
 
 const Unavailable = () => {
+    const handleReturn = () => navigate("/authorization");
+
 
     return (
         <MainContainer
@@ -11,10 +13,11 @@ const Unavailable = () => {
         >
             <CompUnavailableMethod/>
             <ButtonsContainer
-                handleReturn={handleClick.handleReturn}
-                handleAdvance={firstStep ? handleClick.handleContinue : handleClick.handleAuthorize}
+                className={buttonsDetails.className}
+                style={buttonsDetails.style}
+                handleReturn={handleReturn}
                 returnBtn={"voltar"}
-                advanceBtn={firstStep ? "continuar" : "autorizar"}
+
             />
         </MainContainer>
     )

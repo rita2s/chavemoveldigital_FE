@@ -1,16 +1,8 @@
 import React from 'react';
-import {useNavigate} from "react-router-dom";
 import {Box, Modal, Typography} from "@mui/material";
 
 const ModalContainer = ({open, handleCloseModal, data}) => {
-    const navigate = useNavigate();
-    const {code, delay} = data || {};
-    /*
-    * Modal é a popup window que a parece com o código
-    * Para facilitar a nossa vida podemos usar o Material UI que é uma framework
-    * para criar modals e outras cenas
-    * https://mui.com/material-ui/react-modal/
-    */
+    const code = data.get("SMScode");
 
     const style = {
         position: 'absolute',
@@ -44,16 +36,14 @@ const ModalContainer = ({open, handleCloseModal, data}) => {
                     {code}
                 </Typography>
                 <Typography id="modal-modal-description" sx={{mt: 2, mb: 2}}>
-                    Autenticação em EuVoto
+                    Autenticação em Autoridade Tributária e Aduaneira
                 </Typography>
 
                 <div className={"diflex jcc w100"}>
                     <input
                         type={"button"}
                         value={"Fechar"}
-                        onClick={() => {
-                            navigate("/code-validation", {state: {delay}});
-                        }}
+                        onClick={handleCloseModal}
                     />
                 </div>
 

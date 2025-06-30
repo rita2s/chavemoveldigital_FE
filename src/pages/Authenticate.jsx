@@ -2,21 +2,15 @@ import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
 import api from "../services/api.js";
-import ModalContainer from "../components/ModalContainer/index.jsx";
 import AuthenticationInputsContainer from "../components/AuthenticationInputsContainer.jsx";
 import MainContainer from "../components/MainContainer.jsx";
 
 const Authenticate = () => {
     const navigate = useNavigate();
-    const [open, setOpen] = useState(false);
-    const [data, setData] = useState(null);
     const [input, setInput] = useState({
         telephoneNumber: "",
         pin: "",
     });
-
-    const handleOpenModal = () => setOpen(true);
-    const handleCloseModal = () => setOpen(false);
 
     const handleReturn = () => navigate("/authorization");
 
@@ -28,10 +22,18 @@ const Authenticate = () => {
             body.set("telephoneNumber", input.telephoneNumber)
             body.set("pin", input.pin)
 
-            const {data} = await api.post("/authenticate", body)
-
-            setData(data)
-            handleOpenModal()
+            await api.post("/authenticate", body)
+                .then(response => {
+                    const { next, params } = response.data;
+                    const url = new URL(`http://localhost:5174${next}`);
+                    Object.entries(params).forEach(([key, value]) => {
+                        url.searchParams.append(key, value);
+                    });
+                    window.location.href = url.toString();
+                })
+                .catch(error => {
+                    console.error("Auth failed", error);
+                });
 
         } catch (e) {
             console.error("Authentication failed:", e);
@@ -94,7 +96,6 @@ const Authenticate = () => {
                 returnBtn={"voltar"}
                 advanceBtn={"autenticar"}
             />
-            <ModalContainer open={open} handleCloseModal={handleCloseModal} data={data}/>
         </MainContainer>
     );
 };

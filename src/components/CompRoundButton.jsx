@@ -2,7 +2,7 @@
 const CompRoundButton = ({ label, id, selected, handleSelectChange, name }) => {
     return (
 
-        <>
+        <div className="dflx g10">
             <input
                 type={"radio"}
                 id={id}
@@ -15,7 +15,7 @@ const CompRoundButton = ({ label, id, selected, handleSelectChange, name }) => {
                 htmlFor={id}
                 className={selected === id ? `selected` : ""}
             >{label}</label>
-        </>
+        </div>
     );
 }
 

@@ -19,6 +19,7 @@ const CompMethodSelector = () => {
             <form className="comp-method" onSubmit={() => console.log(selected)}>
                 <h4>SELECIONE O MÉTODO DE AUTENTICAÇÃO:</h4>
                 <div className="comp-round-button-container">
+
                     <CompRoundButton
                         id="bi"
                         name="authMethod"
@@ -27,6 +28,7 @@ const CompMethodSelector = () => {
                         selected={selected.authMethod}
                         handleSelectChange={handleSelectChange}
                     />
+
                     <CompRoundButton
                         id="cmd"
                         name="authMethod"

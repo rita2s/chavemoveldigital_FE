@@ -1,10 +1,11 @@
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
 import MainContainer from "../components/MainContainer.jsx";
-import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 
 const Unavailable = () => {
     const handleReturn = () => navigate("/authorization");
+    const navigate = useNavigate();
 
     const buttonsDetails = {
         className: {
@@ -25,7 +26,7 @@ const Unavailable = () => {
             }
         }
     };
-    
+
     return (
         <MainContainer
             className={"dflxc g20"}

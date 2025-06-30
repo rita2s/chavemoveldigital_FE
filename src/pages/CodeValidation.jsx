@@ -41,7 +41,7 @@ const CodeValidation = () => {
         <MainContainer
             className={"dflxc g20"}
             title={"faça a sua autenticação:"}
-            progress={100}
+            progress={70}
         >
             <CodeValidationContainer
                 input={input}

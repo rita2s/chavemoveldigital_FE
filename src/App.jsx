@@ -6,6 +6,7 @@ import Header from "./components/common/Header.jsx";
 import Footer from "./components/common/Footer.jsx";
 import CodeValidationContainer from "./components/CodeValidationContainer.jsx";
 import CodeValidation from "./pages/CodeValidation.jsx";
+import Unavailable from "./pages/Unavailable.jsx";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
                     <Route path="/authorization" element={<Authorization />} />
                     <Route path="/authentication" element={<Authenticate />} />
                     <Route path="/code-validation" element={<CodeValidation />} />
+                    <Route path="/unavailable" element={<Unavailable />} />
                 </Routes>
             </main>
             <Footer/>

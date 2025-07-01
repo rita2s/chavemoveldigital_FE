@@ -1,23 +1,19 @@
 import CompRoundButton from "./CompRoundButton.jsx";
 import {useState} from "react";
 
-const CompMethodSelector = () => {
-    const [selected, setSelectedMethod] = useState({
-        authMethod: "",
-        personalMethod: ""
-    });
+const CompMethodSelector = ({ selected, setSelectedMethod }) => {
 
     const handleSelectChange = (event) => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         setSelectedMethod(prev => ({
             ...prev,
             [name]: value
         }));
-    }
+    };
+
     return (
         <div>
-            <form className="comp-method" onSubmit={() => console.log(selected)}>
-                <h4>SELECIONE O MÉTODO DE AUTENTICAÇÃO:</h4>
+            <form className="comp-method" onSubmit={(e) => e.preventDefault()}>                <h4>SELECIONE O MÉTODO DE AUTENTICAÇÃO:</h4>
                 <div className="comp-round-button-container">
 
                     <CompRoundButton

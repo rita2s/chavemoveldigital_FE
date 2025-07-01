@@ -8,12 +8,27 @@ import MainContainer from "../components/MainContainer.jsx";
 
 // First page
 const Authorization = () => {
+
+    const [selected, setSelectedMethod] = useState({
+        authMethod: "",
+        personalMethod: ""
+    });
+
     const navigate = useNavigate();
     const {state} = useLocation();
     const [firstStep, setFirstStep] = useState(true);
 
     const handleClick = {
-        handleContinue: () => setFirstStep(false),
+        handleContinue: () => {
+            const validAuth = selected.authMethod === "cmd";
+            const validPersonal = selected.personalMethod === "sms";
+
+            if (validAuth && validPersonal) {
+                setFirstStep(false);
+            } else {
+                navigate("/unavailable");
+            }
+        },
         handleAuthorize: () => {
             navigate("/authentication")
         },
@@ -26,7 +41,7 @@ const Authorization = () => {
             title={"faça a sua autenticação com:"}
             progress={firstStep ? 0 : 30}
         >
-            <CompAutMethod firstStep={firstStep}/>
+            <CompAutMethod firstStep={firstStep} selected={selected} setSelectedMethod={setSelectedMethod} />
             <ButtonsContainer
                 handleReturn={handleClick.handleReturn}
                 handleAdvance={firstStep ? handleClick.handleContinue : handleClick.handleAuthorize}

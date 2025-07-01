@@ -31,6 +31,7 @@ const ButtonsContainer = (
 
     return (
         <div className={"dflx g20"}>
+            {handleReturn && returnBtn &&
             <Button
                 className={className.return}
                 style={style}
@@ -38,6 +39,8 @@ const ButtonsContainer = (
                 btnValue={returnBtn}
                 handleClick={handleReturn}
             />
+            }
+            {handleAdvance && advanceBtn &&
             <Button
                 className={className.advance}
                 style={style}
@@ -45,6 +48,7 @@ const ButtonsContainer = (
                 btnValue={advanceBtn}
                 handleClick={handleAdvance}
             />
+            }
         </div>
     );
 };

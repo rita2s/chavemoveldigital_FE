@@ -22,7 +22,7 @@ const Authenticate = () => {
             body.set("telephoneNumber", input.telephoneNumber)
             body.set("pin", input.pin)
 
-            await api.post("/authenticate", body)
+            await api.post("/user/authenticate", body)
                 .then(response => {
                     const { next, params } = response.data;
                     const url = new URL(`http://localhost:5174${next}`);

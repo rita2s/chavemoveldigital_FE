@@ -27,7 +27,7 @@ const CodeValidation = () => {
             const body = new FormData();
             body.set("code", input.code);
 
-            const response = await api.post("/authenticate/code", body);
+            const response = await api.post("/user/verify-smscode", body);
 
             if (response.status === 200) {
                 window.location.href = response?.data?.redirect;

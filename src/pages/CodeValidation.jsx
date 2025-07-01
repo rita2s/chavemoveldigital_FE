@@ -27,7 +27,11 @@ const CodeValidation = () => {
             const body = new FormData();
             body.set("code", input.code);
 
-            await api.post("/authenticate/code", body);
+            const response = await api.post("/authenticate/code", body);
+
+            if (response.status === 200) {
+                window.location.href = response?.data?.redirect;
+            }
 
         } catch (e) {
             console.error(e);

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
 import api from "../services/api.js";
 import AuthenticationInputsContainer from "../components/AuthenticationInputsContainer.jsx";
@@ -7,6 +7,7 @@ import MainContainer from "../components/MainContainer.jsx";
 
 const Authenticate = () => {
     const navigate = useNavigate();
+    const [data, setData] = useSearchParams();
     const [input, setInput] = useState({
         telephoneNumber: "",
         pin: "",
@@ -22,10 +23,11 @@ const Authenticate = () => {
             body.set("telephoneNumber", input.telephoneNumber)
             body.set("pin", input.pin)
 
-            await api.post("/user/authenticate", body)
+            await api.post("/users/authenticate", body)
                 .then(response => {
                     const { next, params } = response.data;
                     const url = new URL(`http://localhost:5174${next}`);
+                    url.searchParams.append("TOKEN", data.get("TOKEN"));
                     Object.entries(params).forEach(([key, value]) => {
                         url.searchParams.append(key, value);
                     });

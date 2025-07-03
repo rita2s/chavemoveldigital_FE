@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
 import CompAutMethod from "../components/CompAutMethod.jsx";
 import "../components/compStyle.css"
@@ -17,6 +17,7 @@ const Authorization = () => {
     const navigate = useNavigate();
     const {state} = useLocation();
     const [firstStep, setFirstStep] = useState(true);
+    const [param, SetParam] = useSearchParams();
 
     const handleClick = {
         handleContinue: () => {
@@ -30,7 +31,7 @@ const Authorization = () => {
             }
         },
         handleAuthorize: () => {
-            navigate("/authentication")
+            navigate(`/authentication?TOKEN=${param.get("TOKEN")}`)
         },
         handleReturn: () => navigate(state?.originURL || "/")
     };

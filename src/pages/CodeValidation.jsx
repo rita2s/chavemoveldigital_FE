@@ -11,11 +11,13 @@ const CodeValidation = () => {
     const {state} = useLocation();
     const navigate = useNavigate();
     const [data, setData] = useSearchParams();
+    data.forEach(d => console.log("CodeValidation data:", d));
     const delay = data.get("delay");
     const [open, setOpen] = useState(false);
     const [input, setInput] = useState({
         code: "",
     });
+    console.log(data.get("TOKEN"));
 
     const handleOpenModal = () => setOpen(true);
     const handleCloseModal = () => setOpen(false);
@@ -25,12 +27,13 @@ const CodeValidation = () => {
     const handleCodeValidation = async () => {
         try {
             const body = new FormData();
-            body.set("code", input.code);
+            body.set("SMSCode", input.code);
+            body.set("clientToken", data.get("TOKEN"));
 
-            const response = await api.post("/user/verify-smscode", body);
+            const response = await api.post("/users/verify-smscode", body);
 
             if (response.status === 200) {
-                window.location.href = response?.data?.redirect;
+                window.location.href = response.data;
             }
 
         } catch (e) {

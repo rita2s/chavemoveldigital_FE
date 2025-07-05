@@ -4,7 +4,6 @@ import InputWithError from "../InputWithError.jsx";
 const TextInput = ({ setInput, input, className, style, submitted }) => {
     const { type, label, name, value, error } = input;
 
-    console.log(value);
     return (
         <>
             <label

@@ -7,7 +7,6 @@ const ProtectedRoute = ({children}) => {
     const tokenInURI = data.get("TOKEN");
     const navigate = useNavigate();
     const handleCheckToken = async () => {
-        console.log("Checking token validity...");
         try {
             const response = await api.get(`/oauth/token?token=${tokenInURI}`);
             if (!response.data) {
@@ -23,7 +22,6 @@ const ProtectedRoute = ({children}) => {
 
     useEffect(() => {
         handleCheckToken();
-        console.log("Token in URI:", tokenInURI);
         if (!tokenInURI || tokenInURI === "NULL" || tokenInURI === "null") {
             console.error("No token found in URI, redirecting to authentication page");
             navigate("/unavailable", {replace: true});

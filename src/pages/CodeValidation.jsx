@@ -17,7 +17,6 @@ const CodeValidation = () => {
     const [open, setOpen] = useState(false);
     const [input, dispatchInputs] = useReducer(inputsDetailsReducer, initialInputsDetails);
 
-    console.log(input);
     const handleOpenModal = () => setOpen(true);
     const handleCloseModal = () => setOpen(false);
 

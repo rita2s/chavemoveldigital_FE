@@ -1,5 +1,4 @@
 import CompRoundButton from "./CompRoundButton.jsx";
-import {useState} from "react";
 
 const CompMethodSelector = ({ selected, setSelectedMethod }) => {
 
@@ -23,6 +22,7 @@ const CompMethodSelector = ({ selected, setSelectedMethod }) => {
                         label="Cartão de Cidadão"
                         selected={selected.authMethod}
                         handleSelectChange={handleSelectChange}
+                        checked={selected.authMethod === "bi" || (!selected.authMethod && false)}
                     />
 
                     <CompRoundButton
@@ -32,6 +32,8 @@ const CompMethodSelector = ({ selected, setSelectedMethod }) => {
                         label="Chave Móvel Digital"
                         selected={selected.authMethod}
                         handleSelectChange={handleSelectChange}
+                        checked={selected.authMethod === "cmd" || (!selected.authMethod && true)}
+
                     />
                 </div>
                 <h4>Pretende fazer a autenticação através de:</h4>
@@ -43,6 +45,8 @@ const CompMethodSelector = ({ selected, setSelectedMethod }) => {
                         label="Email"
                         selected={selected.personalMethod}
                         handleSelectChange={handleSelectChange}
+                        checked={selected.personalMethod === "email" || (!selected.personalMethod && false)}
+
                     />
                     <CompRoundButton
                         id="sms"
@@ -51,6 +55,8 @@ const CompMethodSelector = ({ selected, setSelectedMethod }) => {
                         label="Número de Telemóvel"
                         selected={selected.personalMethod}
                         handleSelectChange={handleSelectChange}
+                        checked={selected.personalMethod === "sms" || (!selected.personalMethod && true)}
+
                     />
                 </div>
             </form>

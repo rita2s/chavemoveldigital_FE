@@ -28,12 +28,14 @@ const CodeValidation = () => {
         try {
             const body = new FormData();
             body.set("SMSCode", input.code);
-            body.set("clientToken", data.get("TOKEN"));
+            body.set("token", data.get("TOKEN"));
 
             const response = await api.post("/users/verify-smscode", body);
 
+            console.log(response);
+
             if (response.status === 200) {
-                window.location.href = response.data;
+                window.location.href = `http://localhost:5173/auth-with-token?TOKEN=${data.get("TOKEN")}&ID=${response.data}`;
             }
 
         } catch (e) {

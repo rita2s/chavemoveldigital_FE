@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useReducer, useState} from 'react';
 import MainContainer from "../components/MainContainer.jsx";
 import CodeValidationContainer from "../components/CodeValidationContainer.jsx";
 import CodeCountDown from "../components/ModalContainer/CodeCountDown.jsx";
@@ -6,6 +6,8 @@ import ButtonsContainer from "../components/ButtonsContainer.jsx";
 import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
 import api from "../services/api.js";
 import ModalContainer from "../components/ModalContainer/index.jsx";
+import { initialInputsDetails, inputsDetailsReducer } from "../reducers/inputsDetails.js";
+import { validateTelephoneNumber, validatePin } from '../utils/inputUtils.js';
 
 const CodeValidation = () => {
     const {state} = useLocation();
@@ -13,19 +15,23 @@ const CodeValidation = () => {
     const [data, setData] = useSearchParams();
     const delay = data.get("delay");
     const [open, setOpen] = useState(false);
-    const [input, setInput] = useState({
-        code: "",
-    });
+    const [input, dispatchInputs] = useReducer(inputsDetailsReducer, initialInputsDetails);
 
+    console.log(input);
     const handleOpenModal = () => setOpen(true);
     const handleCloseModal = () => setOpen(false);
 
     const handleReturn = () => navigate("/authentication");
 
     const handleCodeValidation = async () => {
+        const codeError = input.code.value ? '' : 'Campo obrigatório';
+        dispatchInputs({ type: 'SET_CODE', payload: { value: input.code.value, error: codeError } });
+
+        if (codeError) return;
+
         try {
             const body = new FormData();
-            body.set("SMSCode", input.code);
+            body.set("SMSCode", input.code.value);
             body.set("token", data.get("TOKEN"));
 
             const response = await api.post("/users/verify-smscode", body);
@@ -43,26 +49,16 @@ const CodeValidation = () => {
         handleOpenModal();
     }, []);
 
-    const inputsDetails = {
-        title: "chave móvel digital",
-        code: {
-            label: "Código de Validação",
-            type: "text",
-            name: "code",
-            value: input.code
-        },
-    };
-
     return (
         <MainContainer
             className={"dflxc g20"}
             title={"faça a sua autenticação:"}
             progress={70}
         >
+
             <CodeValidationContainer
                 input={input}
-                setInput={setInput}
-                inputsDetails={inputsDetails}
+                setInput={dispatchInputs}
             />
             <CodeCountDown delay={delay}/>
             <ButtonsContainer

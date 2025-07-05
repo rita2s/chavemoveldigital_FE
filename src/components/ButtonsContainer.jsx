@@ -6,7 +6,8 @@ const ButtonsContainer = (
         handleReturn,
         handleAdvance,
         returnBtn,
-        advanceBtn
+        advanceBtn,
+        type
     }
 ) => {
 
@@ -44,9 +45,9 @@ const ButtonsContainer = (
             <Button
                 className={className.advance}
                 style={style}
-                btnType={"button"}
+                btnType={type || "button"}
                 btnValue={advanceBtn}
-                handleClick={handleAdvance}
+                handleClick={type === "submit" ? undefined : handleAdvance}
             />
             }
         </div>

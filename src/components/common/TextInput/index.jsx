@@ -1,29 +1,27 @@
 import React from 'react';
+import InputWithError from "../InputWithError.jsx";
 
-const TextInput = ({input, setInput, inputDetails, className, style}) => {
-    const {type, label, name, value} = inputDetails;
+const TextInput = ({ setInput, input, className, style, submitted }) => {
+    const { type, label, name, value, error } = input;
 
+    console.log(value);
     return (
         <>
             <label
-                htmlFor={`input-${type}`}
+                htmlFor={`input-${name}`}
                 className={className.label}
                 style={style.label}
             >{label}</label>
             <input
                 type={type}
-                id={`input-${type}`}
+                id={`input-${name}`}
                 className={className.input}
                 style={style.input}
                 name={name}
                 value={value}
-                onChange={(e) => {
-                    setInput({
-                        ...input,
-                        [e.target.name]: e.target.value
-                    })
-                }}
+                onChange={setInput}
             />
+            <InputWithError error={submitted ? error : ""} />
         </>
     );
 };

@@ -1,5 +1,5 @@
 
-const CompRoundButton = ({ label, id, selected, handleSelectChange, name, checked }) => {
+const CompRoundButton = ({ label, id, selected, handleSelectChange, name }) => {
     return (
 
         <div className="dflx g10">
@@ -10,7 +10,6 @@ const CompRoundButton = ({ label, id, selected, handleSelectChange, name, checke
                 className={`round-button`}
                 value={id}
                 onChange={(e) => handleSelectChange(e)}
-                checked={checked}
             />
             <label
                 htmlFor={id}

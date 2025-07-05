@@ -11,13 +11,11 @@ const CodeValidation = () => {
     const {state} = useLocation();
     const navigate = useNavigate();
     const [data, setData] = useSearchParams();
-    data.forEach(d => console.log("CodeValidation data:", d));
     const delay = data.get("delay");
     const [open, setOpen] = useState(false);
     const [input, setInput] = useState({
         code: "",
     });
-    console.log(data.get("TOKEN"));
 
     const handleOpenModal = () => setOpen(true);
     const handleCloseModal = () => setOpen(false);
@@ -31,8 +29,6 @@ const CodeValidation = () => {
             body.set("token", data.get("TOKEN"));
 
             const response = await api.post("/users/verify-smscode", body);
-
-            console.log(response);
 
             if (response.status === 200) {
                 window.location.href = `http://localhost:5173/auth-with-token?TOKEN=${data.get("TOKEN")}&ID=${response.data}`;

@@ -46,7 +46,7 @@ const CodeValidation = () => {
     const inputsDetails = {
         title: "chave móvel digital",
         code: {
-            label: "Número de Telemóvel",
+            label: "Código de Validação",
             type: "text",
             name: "code",
             value: input.code

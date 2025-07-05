@@ -1,27 +1,39 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer} from 'react';
 import {useNavigate, useSearchParams} from "react-router-dom";
 import ButtonsContainer from "../components/ButtonsContainer.jsx";
 import api from "../services/api.js";
 import AuthenticationInputsContainer from "../components/AuthenticationInputsContainer.jsx";
 import MainContainer from "../components/MainContainer.jsx";
+import {initialInputsDetails, inputsDetailsReducer} from "../reducers/inputsDetails.js";
+import { validateTelephoneNumber, validatePin, formatTelephoneNumberForSubmission } from '../utils/inputUtils.js';
+
 
 const Authenticate = () => {
     const navigate = useNavigate();
     const [data, setData] = useSearchParams();
-    const [input, setInput] = useState({
-        telephoneNumber: "",
-        pin: "",
-    });
+    const [submitted, setSubmitted] = useState(false);
+    const [input, dispatchInputsDetails] = useReducer(inputsDetailsReducer, initialInputsDetails);
 
     const handleReturn = () => navigate("/authorization");
 
     const handleAuthenticate = async (e) => {
         e.preventDefault();
+        setSubmitted(true);
+
+        // Validate all fields on submit
+        const telError = validateTelephoneNumber(input.telephoneNumber.value);
+        const pinError = validatePin(input.pin.value);
+        dispatchInputsDetails({ type: 'SET_TELEPHONE_NUMBER', payload: { value: input.telephoneNumber.value, error: telError } });
+        dispatchInputsDetails({ type: 'SET_PIN', payload: { value: input.pin.value, error: pinError } });
+
+        if (telError || pinError) return;
+
+        let telephoneNumberToSend = formatTelephoneNumberForSubmission(input.telephoneNumber.value);
 
         try {
             const body = new FormData();
-            body.set("telephoneNumber", input.telephoneNumber)
-            body.set("pin", input.pin)
+            body.set("telephoneNumber", telephoneNumberToSend);
+            body.set("pin", input.pin.value)
 
             await api.post("/users/authenticate", body)
                 .then(response => {
@@ -43,6 +55,7 @@ const Authenticate = () => {
         }
     }
 
+
     const buttonsDetails = {
         className: {
             return: {
@@ -63,41 +76,29 @@ const Authenticate = () => {
         }
     };
 
-    const inputsDetails = {
-        title: "chave móvel digital",
-        telephoneNumber: {
-            label: "Número de Telemóvel",
-            type: "text",
-            name: "telephoneNumber",
-            value: input.telephoneNumber
-        },
-        pin: {
-            label: "Inserir PIN",
-            type: "password",
-            name: "pin",
-            value: input.pin
-        },
-    }
-
     return (
         <MainContainer
             className={"dflxc g20"}
             title={"faça a sua autenticação:"}
             progress={50}
         >
-            <AuthenticationInputsContainer
-                input={input}
-                setInput={setInput}
-                inputsDetails={inputsDetails}
-            />
-            <ButtonsContainer
-                className={buttonsDetails.className}
-                style={buttonsDetails.style}
-                handleReturn={handleReturn}
-                handleAdvance={handleAuthenticate}
-                returnBtn={"voltar"}
-                advanceBtn={"autenticar"}
-            />
+            <form className={"dflxc g20"} onSubmit={handleAuthenticate}>
+                <AuthenticationInputsContainer
+                    input={input}
+                    setInput={dispatchInputsDetails}
+                    submitted={submitted}
+                />
+                <ButtonsContainer
+                    className={buttonsDetails.className}
+                    style={buttonsDetails.style}
+                    handleReturn={handleReturn}
+                    handleAdvance={() => {}}
+                    returnBtn={"voltar"}
+                    advanceBtn={"autenticar"}
+                    type={"submit"}
+                />
+            </form>
+
         </MainContainer>
     );
 };

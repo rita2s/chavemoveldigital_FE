@@ -10,8 +10,8 @@ import MainContainer from "../components/MainContainer.jsx";
 const Authorization = () => {
 
     const [selected, setSelectedMethod] = useState({
-        authMethod: "",
-        personalMethod: ""
+        authMethod: "cmd",
+        personalMethod: "sms"
     });
 
     const navigate = useNavigate();

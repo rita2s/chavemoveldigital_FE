@@ -8,6 +8,7 @@ import CodeValidationContainer from "./components/CodeValidationContainer.jsx";
 import CodeValidation from "./pages/CodeValidation.jsx";
 import Unavailable from "./pages/Unavailable.jsx";
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
+import ProtectedRoute from "./services/ProtectedRoute.jsx";
 
 function App() {
 
@@ -18,10 +19,11 @@ function App() {
                 <ErrorBoundary fallback={<h2>Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.</h2>}>
                     <Routes>
                         <Route path="*" element={<Navigate to="/authorization"/>}/>
-                        <Route path="/authorization" element={<Authorization/>}/>
-                        <Route path="/authentication" element={<Authenticate/>}/>
-                        <Route path="/code-validation" element={<CodeValidation/>}/>
-                        <Route path="/unavailable" element={<Unavailable/>}/>
+                        <Route path="/authorization" element={<ProtectedRoute><Authorization/></ProtectedRoute>}/>
+                        <Route path="/authentication" element={<ProtectedRoute><Authenticate/></ProtectedRoute>}/>
+                        <Route path="/code-validation" element={<ProtectedRoute><CodeValidation/></ProtectedRoute>}/>
+                        <Route path="/unavailable" element={<ProtectedRoute><Unavailable/></ProtectedRoute>}/>
+                        <Route path="/error" element={<ProtectedRoute><Error/></ProtectedRoute>}/>
                     </Routes>
                 </ErrorBoundary>
             </main>

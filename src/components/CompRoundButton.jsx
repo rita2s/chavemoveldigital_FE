@@ -9,6 +9,7 @@ const CompRoundButton = ({ label, id, selected, handleSelectChange, name }) => {
                 name={name}
                 className={`round-button`}
                 value={id}
+                checked={selected === id}
                 onChange={(e) => handleSelectChange(e)}
             />
             <label

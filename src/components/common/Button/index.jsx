@@ -11,7 +11,6 @@ const Button = ({className, style, btnType, btnValue, handleClick}) => {
 
     return (<>
             <button
-                id={"button"}
                 type={btnType}
                 onClick={handleClick}
                 className={className.button}

@@ -1,18 +1,45 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
+import useIsTabActive from "../../hooks/useIsTabActive.jsx";
+import api from "../../services/api.js";
 
-const CodeCountDown = ({delay}) => {
+const CodeCountDown = ({token}) => {
     const navigate = useNavigate();
-    const [time, setTime] = useState(delay ?? 60000);
+    const [time, setTime] = useState();
+    const isTabActive = useIsTabActive();
+
+    const handleTimer = async () => {
+        try {
+            const response = await api.get("/users/sms-code-time-left", {
+                params: {
+                    token: token
+                }
+            });
+            if (response?.status === 200) {
+                setTime(response?.data);
+            }
+
+        } catch (error) {
+            console.error("Error fetching SMS code time left:", error);
+        }
+    };
 
     useEffect(() => {
-        if (time <= 0) navigate("/authorization");
+        if (isTabActive) {
+            handleTimer();
+        }
+    }, [isTabActive]);
+
+
+    useEffect(() => {
+        if (time <= 0) navigate("/authorization", {replace: true});
 
         const timeout = setTimeout(() => {
-            setTime(time - 1);
+            setTime(prevState => prevState - 1);
 
-            return clearTimeout(timeout)
         }, 1000);
+
+        return () => clearTimeout(timeout);
     }, [time]);
 
     return (

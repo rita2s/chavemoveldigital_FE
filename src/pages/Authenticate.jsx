@@ -11,6 +11,7 @@ import { validateTelephoneNumber, validatePin, formatTelephoneNumberForSubmissio
 const Authenticate = () => {
     const navigate = useNavigate();
     const [data, setData] = useSearchParams();
+    const token = data.get("TOKEN");
     const [submitted, setSubmitted] = useState(false);
     const [input, dispatchInputsDetails] = useReducer(inputsDetailsReducer, initialInputsDetails);
 
@@ -34,12 +35,13 @@ const Authenticate = () => {
             const body = new FormData();
             body.set("telephoneNumber", telephoneNumberToSend);
             body.set("pin", input.pin.value)
+            body.set("token", token);
 
             await api.post("/users/authenticate", body)
                 .then(response => {
                     const { next, params } = response.data;
                     const url = new URL(`http://localhost:5174${next}`);
-                    url.searchParams.append("TOKEN", data.get("TOKEN"));
+                    url.searchParams.append("TOKEN", token);
                     Object.entries(params).forEach(([key, value]) => {
                         url.searchParams.append(key, value);
                     });

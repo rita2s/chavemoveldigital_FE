@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer, useState} from 'react';
+import React, {useEffect, useReducer, useRef, useState} from 'react';
 import MainContainer from "../components/MainContainer.jsx";
 import CodeValidationContainer from "../components/CodeValidationContainer.jsx";
 import CodeCountDown from "../components/ModalContainer/CodeCountDown.jsx";
@@ -8,18 +8,19 @@ import api from "../services/api.js";
 import ModalContainer from "../components/ModalContainer/index.jsx";
 import { initialInputsDetails, inputsDetailsReducer } from "../reducers/inputsDetails.js";
 import { validateTelephoneNumber, validatePin } from '../utils/inputUtils.js';
+import useIsTabActive from "../hooks/useIsTabActive.jsx";
 
 const CodeValidation = () => {
     const {state} = useLocation();
     const navigate = useNavigate();
-    const [data, setData] = useSearchParams();
-    const delay = data.get("delay");
     const [open, setOpen] = useState(false);
     const [input, dispatchInputs] = useReducer(inputsDetailsReducer, initialInputsDetails);
+    const [data, setData] = useSearchParams();
+    const token = data.get("TOKEN");
+
 
     const handleOpenModal = () => setOpen(true);
     const handleCloseModal = () => setOpen(false);
-
     const handleReturn = () => navigate("/authentication");
 
     const handleCodeValidation = async () => {
@@ -31,7 +32,7 @@ const CodeValidation = () => {
         try {
             const body = new FormData();
             body.set("SMSCode", input.code.value);
-            body.set("token", data.get("TOKEN"));
+            body.set("token", token);
 
             const response = await api.post("/users/verify-smscode", body);
 
@@ -59,7 +60,9 @@ const CodeValidation = () => {
                 input={input}
                 setInput={dispatchInputs}
             />
-            <CodeCountDown delay={delay}/>
+            <CodeCountDown
+                token={token}
+            />
             <ButtonsContainer
                 returnBtn={"voltar"}
                 handleReturn={handleReturn}

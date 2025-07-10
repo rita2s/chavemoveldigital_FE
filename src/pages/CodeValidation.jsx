@@ -37,7 +37,7 @@ const CodeValidation = () => {
             const response = await api.post("/users/verify-smscode", body);
 
             if (response.status === 200) {
-                window.location.href = `http://localhost:5173/auth-with-token?TOKEN=${data.get("TOKEN")}&ID=${response.data}`;
+                window.location.href = `http://localhost:5173/auth-with-token?TOKEN=${data.get("TOKEN")}`;
             }
 
         } catch (e) {

@@ -26,7 +26,7 @@ const Unavailable = () => {
         <div
             className={"dflxc g20 comp-style"}
         >
-            <CompUnavailableMethod/>
+            <Unavailable/>
             <ButtonsContainer
                 handleReturn={handleClick.handleReturn}
                 returnBtn={"voltar"}

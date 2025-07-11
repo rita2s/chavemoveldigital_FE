@@ -4,7 +4,6 @@ import Authenticate from "./pages/Authenticate.jsx";
 import {Navigate, Route, Routes} from "react-router-dom";
 import Header from "./components/common/Header.jsx";
 import Footer from "./components/common/Footer.jsx";
-import CodeValidationContainer from "./components/CodeValidationContainer.jsx";
 import CodeValidation from "./pages/CodeValidation.jsx";
 import Unavailable from "./pages/Unavailable.jsx";
 import ErrorBoundary from "./components/ErrorBoundary.jsx";

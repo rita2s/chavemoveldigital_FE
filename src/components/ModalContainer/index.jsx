@@ -36,7 +36,7 @@ const ModalContainer = ({open, handleCloseModal, data}) => {
                     {code}
                 </Typography>
                 <Typography id="modal-modal-description" sx={{mt: 2, mb: 2}}>
-                    Autenticação em Autoridade Tributária e Aduaneira
+                    Autenticação em EuVoto
                 </Typography>
 
                 <div className={"diflex jcc w100"}>

@@ -10,7 +10,7 @@ export const validatePin = (value) => {
     return "";
 };
 
-export function formatTelephoneNumberForSubmission(value) {
+export const formatTelephoneNumberForSubmission = (value) => {
     if (/^\d{9}$/.test(value)) {
         return `+351${value}`;
     }

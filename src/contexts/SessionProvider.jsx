@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import api from "../services/api.js";
 import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
-import {Bounce, toast, ToastContainer} from "react-toastify";
 import {SessionContext} from "./SessionContext.js";
 
 

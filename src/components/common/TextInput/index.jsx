@@ -17,8 +17,8 @@ const TextInput = ({ setInput, input, className, style, submitted }) => {
                 className={className.input}
                 style={style.input}
                 name={name}
-                value={value}
-                onChange={setInput}
+                value={value || ""}
+                onChange={(e) => setInput(e)}
             />
             <InputWithError error={submitted ? error : ""} />
         </>

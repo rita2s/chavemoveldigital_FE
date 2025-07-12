@@ -15,7 +15,7 @@ function App() {
         <>
             <Header/>
             <main>
-                <ErrorBoundary fallback={<h2>Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.</h2>}>
+                <ErrorBoundary fallback={<h2 style={{marginTop: 50, textAlign: "center"}}>Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.</h2>}>
                     <Routes>
                         <Route path="*" element={<Navigate to="/authorization"/>}/>
                         <Route path="/authorization" element={<ProtectedRoute><Authorization/></ProtectedRoute>}/>

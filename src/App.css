@@ -42,6 +42,10 @@ body {
   gap: 5px;
 }
 
+.txt-center {
+  text-align: center;
+}
+
 .pt-sans-regular {
   font-family: "PT Sans", sans-serif;
   font-weight: 400;

@@ -9,12 +9,15 @@ import ModalContainer from "../components/ModalContainer/index.jsx";
 import { initialInputsDetails, inputsDetailsReducer } from "../reducers/inputsDetails.js";
 import { validateTelephoneNumber, validatePin } from '../utils/inputUtils.js';
 import useIsTabActive from "../hooks/useIsTabActive.jsx";
+import InputWithError from "../components/common/InputWithError.jsx";
+
 
 const CodeValidation = () => {
     const {state} = useLocation();
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [input, dispatchInputs] = useReducer(inputsDetailsReducer, initialInputsDetails);
+    const [error, setError] = useState("");
     const [data, setData] = useSearchParams();
     const token = data.get("TOKEN");
 
@@ -40,8 +43,12 @@ const CodeValidation = () => {
                 window.location.href = `http://localhost:5173/auth-with-token?TOKEN=${data.get("TOKEN")}`;
             }
 
-        } catch (e) {
-            console.error(e);
+        } catch (err) {
+            console.error(err);
+            if (err.response.status === 403) {
+                const errorMessage = "Código inválido. Por favor, verifique o código enviado.";
+                setError(errorMessage)
+            }
         }
     };
 
@@ -60,6 +67,7 @@ const CodeValidation = () => {
                 input={input}
                 setInput={dispatchInputs}
             />
+            <InputWithError error={error ? error : ""} />
             <CodeCountDown
                 token={token}
             />
